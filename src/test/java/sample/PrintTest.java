@@ -21,15 +21,4 @@ public class PrintTest {
         System.out.print("hello");
         assertThat(PrintTesHelper.printed(), is("hello"));
     }
-
-    private static class PrintTesHelper{
-        private static OutputStream out;
-        private static void setup(){
-            out = new ByteArrayOutputStream();
-            System.setOut(new PrintStream(out));
-        }
-        private static String printed() {
-            return PrintTesHelper.out.toString();
-        }
-    }
 }
