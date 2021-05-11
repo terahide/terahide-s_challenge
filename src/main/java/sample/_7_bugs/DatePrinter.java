@@ -8,10 +8,10 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class DatePrinter {
-    final static StringBuffer sb = new StringBuffer();
     final static SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd");
 
     public static void main(String[] args) throws Exception{
+        StringBuilder sb = new StringBuilder();
         List<Thread> l = IntStream.range(0,10000)
                 .mapToObj( i -> formatter.format(new Date()) )
                 .filter(s -> s == "2021.05.11") // 前提：今日は 2021.05.11 とする
