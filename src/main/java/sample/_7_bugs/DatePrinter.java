@@ -12,8 +12,8 @@ public class DatePrinter {
     public static void main(String[] args) throws Exception{
         StringBuilder sb = new StringBuilder();
         List<Thread> l = IntStream.range(0,10000)
-                .filter(s -> s == "2021.05.11") // 前提：今日は 2021.05.11 とする
                 .mapToObj(DatePrinter::dateFormat)
+                .filter(s -> s.equals("2021.05.11")) // 前提：今日は 2021.05.11 とする
                 .map( s -> new Thread(()->{
                     sb.append(s);
                     sb.append("\n");
